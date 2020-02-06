@@ -1,0 +1,17 @@
+
+<table class="table table-sm table-bordered table-striped">
+    <thead>
+        <tr><th *ngFor="let th of tHead">{{th}}</th><th *ngIf="tHead.length>0">Control</th></tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tr of tBody">
+            <td *ngFor="let td of tHead">{{tr[td]}}</td>
+            <td *ngIf="tHead.length>0">
+                <button class="btn btn-primary" (click)="edit(tr)">Edit</button>
+                <button class="btn btn-danger" (click)="delete(tr)">Delete</button>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
+<button *ngIf="tHead.length>0" (click)="create()"  class="btn btn-primary">Convert to Create Mode</button>

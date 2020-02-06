@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-dark text-white">
+        <a class="navbar-brand"> Mohamed Blog For School</a>
+            <div style="float:right ;line-height: 45px;">
+            <label for="name" style="display: inline;">name :</label>
+            <input type="text" name="name"  style="display: inline;height:30%;border-radius: 5px; border: black;" (input)="name = $event.target.value" > 
+            <label for="password" style="margin-left: 10px;">password :</label>
+            <input type="password" name="password" style="display: inline;height:30%;border-radius: 5px; border: black;" (input)="password = $event.target.value"  > 
+            <a class=" btn btn-primary float-right" (click)="getAdmin(name,password)" style="margin-left: 10px; margin-top: 5px; float: right; " routerLink="/Admin">Connect</a>
+        </div>
+      
+        </div>
+    </div>
+    
+    <div class="row text-white">
+            <div class="col-2 p-2">
+                <button class="btn btn-outline-primary btn-block" *ngFor="let tp of tps" (click)="getExerciceByTp(tp['id'])">
+                    {{tp["name"]}}
+                </button>
+            </div>
+            <div class="col-10  p-2">
+                <div class="row">
+                    <div class="col-6"  *ngFor="let ex of ExerciceTp">
+                        <button class="btn btn-outline-primary btn-block" (click)="getExercice(ex['id'])"  >
+                            {{ex["name"]}}
+                        </button>
+                        <exercice  *ngIf="Exercice != undefind && Exercice['id'] == ex['id']" [Exercice]="Exercice" style="color: black;"></exercice>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>

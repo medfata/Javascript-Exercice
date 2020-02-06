@@ -1,0 +1,12 @@
+<form *ngIf="form" novalidate [formGroup]="form" >
+    <h5 *ngIf="form" class="bg-primary text-white p-2" [class.bg-warning]="editing">Mode :{{editing? "EDIT":"CREATE"}}</h5>
+    <div class="form-group"  *ngFor="let control of form.getControls()" >
+        <label style="color: black;">{{control.label}}</label>
+        <input class="form-control" formControlName="{{control.modelProperty}}" name="{{control.modelProperty}}" [(ngModel)]="Element[control.modelProperty]" />
+    </div>
+    <div style="float: right;size:auto;" *ngIf="form">
+        <button class="btn btn-primary" [class.btn-warning]="editing" (click)="creatEdit(Element, form)">{{editing? "Save" : "Create"}}</button>
+        <button class="btn btn-secondary" type="reset" >Cancel</button>
+    </div>
+ 
+</form>

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col bg-dark text-white">
+            <a class="navbar-brand"> Mohamed Blog For School</a>
+        </div>
+        <select (change)="selectedValue = $event.target.value" class="col-2  form-control" style="float: right;">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="Exercice">Exercice</option>
+            <option value="Tp">Tp</option>
+            <option value="Admin">Admin</option>
+          </select>
+    </div>
+   
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-8">
+                <tableAdmin [selectedValue] ="selectedValue"></tableAdmin>
+           
+            </div>
+            <div class="col-4"> 
+                <formAdmin [chosevalue]="selectedValue" ></formAdmin>
+            </div>  
+        </div>
+    
+</div>
